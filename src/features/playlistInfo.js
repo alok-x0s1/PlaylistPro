@@ -40,7 +40,6 @@ const fetchVideoData = async (videoId) => {
 
 const calculateTotalDuration = (videos) => {
   let totalDuration = 0;
-  let strDate = ""
 
   videos.forEach((video) => {
     const duration = video.contentDetails.duration;
@@ -48,12 +47,20 @@ const calculateTotalDuration = (videos) => {
     const hours = (parseInt(match[1]) || 0) * 3600;
     const minutes = (parseInt(match[2]) || 0) * 60;
     const seconds = parseInt(match[3]) || 0;
-    strDate = hours === 0 ? `${minutes/60} minutes : ${seconds} seconds` : `${hours/3600} Hours : ${minutes/60} minutes : ${seconds} seconds`
     totalDuration += hours + minutes + seconds;
   });
 
-  return [totalDuration, strDate];
+  return totalDuration;
 };
 
+function formatTime(totalSeconds) {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = (totalSeconds % 60).toFixed(2);
 
-export { fetchPlaylistData, fetchVideoData, calculateTotalDuration };
+  const formattedTime = `${hours}h ${minutes}m ${seconds}s`;
+
+  return formattedTime;
+}
+
+export { fetchPlaylistData, fetchVideoData, calculateTotalDuration, formatTime };
