@@ -110,8 +110,9 @@ const App = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-slate-500 flex pt-12 justify-center items-start">
+    <div className="w-full min-h-screen bg-slate-500 flex pt-4 justify-center items-start">
       <div className="max-w-[750px] w-full min-w-[400px] p-8">
+        <h1 className="text-4xl w-full text-center pb-6 font-semibold heading">PlaylistPro</h1>
         <form
           onSubmit={handleFormSubmit}
           className="w-full flex rounded-md overflow-hidden"
@@ -134,7 +135,7 @@ const App = () => {
         {error && <p style={{ color: "red" }}>{error}</p>}
         {playlistData && (
           <div className="flex justify-center flex-col w-full mt-8">
-            <h2 className="text-3xl w-full text-center">Playlist Data</h2>
+            <h2 className="text-3xl w-full text-center heading">Playlist Data</h2>
             <p className="items-start">
               Total videos : {playlistData.pageInfo.totalResults}
             </p>
@@ -168,7 +169,7 @@ const App = () => {
         </div>
         : null
         }
-        <div className="flex flex-col gap-6 mt-6">
+        <div className="flex flex-col gap-6 mt-6 mb-6">
           {playlistData &&
             playlistData.items.map((video) => (
               <div
@@ -179,15 +180,17 @@ const App = () => {
                   src={video.snippet.thumbnails.high.url}
                   width={120}
                   alt="thumbnail"
+                  className="rounded-md"
                 />
                 <div className="flex flex-col gap-2">
                   <div>{video.snippet.title}</div>
                   <div>{convertToTimeZone(video.snippet.publishedAt, -5)}</div>
-                  <button className="w-fit"><a href={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`} target="_blank"><img src={ytlogo} alt="ytLogo" /></a></button>
+                  <button className="w-fit"><a href={`https://www.youtube.com/watch?v=${video.snippet.resourceId.videoId}`} target="_blank"><img src={ytlogo} alt="ytLogo" width={40} /></a></button>
                 </div>
               </div>
             ))}
         </div>
+      <p className={`w-full text-center text-xl ${playlistData ? null : "absolute bottom-6 left-0"}`}>made in ❤️ with <a href="https://github.com/alok-x0s1" target="_blank" className="hover:underline text-red-600">@lokYadav</a> | All rights reserved.</p>
       </div>
     </div>
   );

@@ -11,3 +11,7 @@ body {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.heading {
+    font-family: "Ubuntu", sans-serif;
+}
