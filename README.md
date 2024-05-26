@@ -1,6 +1,6 @@
 # PlaylistPro
 
-PlaylistPro is a custom React hook designed to fetch and manage YouTube playlist data effortlessly using the YouTube Data API v3. Built with React, Vite, Tailwind CSS, and Axios, it provides an easy and efficient way to integrate YouTube playlists into your web applications.
+PlaylistPro is designed to fetch and manage YouTube playlist data effortlessly using the YouTube Data API v3. Built with React, Vite, Tailwind CSS, and Axios, it provides an easy and efficient way to integrate YouTube playlists into your web applications.
 
 ## Features
 
